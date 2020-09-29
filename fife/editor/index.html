@@ -1,0 +1,90 @@
+<html>
+<head>
+  <script src="toMime.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>onerror=window.close</script>
+  <script src="db.js"></script>
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&display=swap');
+    *{
+      font-family: 'Fira Code', monospace;
+      color:#444;
+      font-size:calc(1vh + 1vw);
+    }
+html,body{
+height:100%;
+width:100%;
+margin:0;
+}
+.navbar{
+top:0;
+left:0;
+height:80px;
+width:100%;
+background-color:#444;
+position:fixed;
+display:flex;
+align-items:center;
+}
+.button{
+padding:10px;
+  border-radius:3px;
+  background-color:#88e;
+  cursor:pointer;
+  margin:10px;
+  text-decoration:none;
+}
+.files{
+overflow:auto;
+margin-top:80px;
+left:0;
+top:0;
+width:200px;
+height:100%;
+background-color:#ccc;
+position:fixed;
+}
+.file{
+width:100%;
+padding-top:5px;
+padding-bottom:5px;
+overflow:auto;
+}
+.selected{
+  background-color:#aaa;
+}
+#editor{
+position:fixed;
+top:80px;
+left:200px;
+height:calc(100% - 80px);
+width:calc(100% - 200px);
+border-radius:0;
+-webkit-appearance:none;
+border:0;
+font-size:0.8em;
+resize:none;
+}
+.options{
+  display:flex;
+}
+</style>
+</head>
+<body>
+<div class="files">
+  <div class="options">
+<div onclick="addFile()" style="cursor:pointer;">New File</div>&nbsp;<div style="cursor:pointer;" onclick="removeFile()">Remove File</div>&nbsp;<button><input type="file" id="fileUpload" style="display:none"><label for="fileUpload">Upload File</label>
+</div>
+<hr>
+<div id="filese">
+<div class="file"></div>
+</div>
+</div>
+<div class="navbar">
+<div class="button" onclick="uploadToServer()">Save Changes</div>
+
+</div>
+<textarea id="editor" aria-autocomplete="both" aria-haspopup="false" autocapitalize="off" autocomplete="off" autocorrect="off" role="combobox" spellcheck="false"></textarea>
+<script src="index.js"></script>
+</body>
+</html>
