@@ -1,0 +1,1 @@
+run="node&sleep 5;cp -r node_modules ..;rm -rf node_modules; mv package-lock.json ..; mv package.json ..;node index.js"
